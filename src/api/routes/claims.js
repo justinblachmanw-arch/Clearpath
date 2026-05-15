@@ -88,4 +88,55 @@ router.get('/claims/action-items', verifyJWT, async (req, res, next) => {
   }
 })
 
+router.get('/claims/denial-trend', verifyJWT, async (req, res, next) => {
+  try {
+    const pid = req.user.providerId
+
+    const [trendRes, topCodesRes] = await Promise.all([
+      db.query(`
+        SELECT
+          DATE_TRUNC('month', date_of_service)                  AS month,
+          TO_CHAR(DATE_TRUNC('month', date_of_service), 'Mon')  AS label,
+          COUNT(*)                                               AS total,
+          COUNT(*) FILTER (WHERE status = 'denied')             AS denied,
+          ROUND(COUNT(*) FILTER (WHERE status = 'denied') * 100.0
+            / NULLIF(COUNT(*), 0), 1)                           AS denial_rate
+        FROM claims
+        WHERE provider_id = $1
+          AND date_of_service >= CURRENT_DATE - INTERVAL '6 months'
+        GROUP BY DATE_TRUNC('month', date_of_service)
+        ORDER BY month ASC
+      `, [pid]),
+
+      db.query(`
+        SELECT adj.code, adj.plain_english, COUNT(*) AS cnt
+        FROM claims c
+        JOIN claim_lines cl  ON cl.claim_id      = c.id
+        JOIN adjustments adj ON adj.claim_line_id = cl.id
+        WHERE c.provider_id = $1 AND c.status = 'denied'
+          AND c.date_of_service >= CURRENT_DATE - INTERVAL '6 months'
+        GROUP BY adj.code, adj.plain_english
+        ORDER BY cnt DESC
+        LIMIT 3
+      `, [pid])
+    ])
+
+    return res.json({
+      trend: trendRes.rows.map(r => ({
+        month:      r.label,
+        total:      parseInt(r.total),
+        denied:     parseInt(r.denied),
+        denialRate: parseFloat(r.denial_rate) || 0
+      })),
+      topCodes: topCodesRes.rows.map(r => ({
+        code:        r.code,
+        description: r.plain_english,
+        count:       parseInt(r.cnt)
+      }))
+    })
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

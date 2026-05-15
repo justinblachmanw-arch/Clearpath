@@ -6,12 +6,16 @@ const { rateLimit }  = require('express-rate-limit')
 const db             = require('../db')
 const { errorHandler } = require('./middleware/errorHandler')
 
-const healthRouter      = require('./routes/health')
-const authRouter        = require('./routes/auth')
-const dashboardRouter   = require('./routes/dashboard')
+const healthRouter       = require('./routes/health')
+const authRouter         = require('./routes/auth')
+const dashboardRouter    = require('./routes/dashboard')
 const appointmentsRouter = require('./routes/appointments')
-const claimsRouter      = require('./routes/claims')
-const webhooksRouter    = require('./routes/webhooks')
+const claimsRouter       = require('./routes/claims')
+const webhooksRouter     = require('./routes/webhooks')
+const credentialsRouter  = require('./routes/credentials')
+const financialsRouter   = require('./routes/financials')
+const intakeRouter       = require('./routes/intake')
+const maRouter           = require('./routes/ma')
 
 const app = express()
 
@@ -27,6 +31,10 @@ app.use('/api', dashboardRouter)
 app.use('/api', appointmentsRouter)
 app.use('/api', claimsRouter)
 app.use('/api', webhooksRouter)
+app.use('/api', credentialsRouter)
+app.use('/api', financialsRouter)
+app.use('/api', intakeRouter)
+app.use('/api', maRouter)
 
 app.use(errorHandler)
 
@@ -34,9 +42,119 @@ async function ensureDbSchema() {
   try {
     await db.query(`ALTER TABLE providers ADD COLUMN IF NOT EXISTS email         VARCHAR(255) UNIQUE`)
     await db.query(`ALTER TABLE providers ADD COLUMN IF NOT EXISTS password_hash VARCHAR(255)`)
+    await db.query(`ALTER TABLE appointments ADD COLUMN IF NOT EXISTS scheduled_time TIME`)
+    await db.query(`ALTER TABLE appointments ADD COLUMN IF NOT EXISTS status TEXT DEFAULT 'booked'`)
+    await db.query(`ALTER TABLE appointments ADD COLUMN IF NOT EXISTS check_in_time TIMESTAMP`)
+    await db.query(`ALTER TABLE appointments ADD COLUMN IF NOT EXISTS intake_completed_at TIMESTAMP`)
     await db.query(
       `UPDATE providers SET email = 'dr.patel@clearpathhealth.com' WHERE id = 1`
     )
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS patient_intake (
+        id                  SERIAL PRIMARY KEY,
+        patient_id          INT REFERENCES patients(id),
+        appointment_id      INT REFERENCES appointments(id),
+        chief_complaint     TEXT,
+        complaint_duration  TEXT,
+        severity            INT,
+        current_medications JSONB DEFAULT '[]',
+        allergies           JSONB DEFAULT '[]',
+        conditions          JSONB DEFAULT '[]',
+        prior_surgeries     TEXT,
+        family_history      TEXT,
+        emergency_contact_name  TEXT,
+        emergency_contact_phone TEXT,
+        preferred_pharmacy  TEXT,
+        insurance_card_front TEXT,
+        insurance_card_back  TEXT,
+        extracted_insurance  JSONB,
+        hipaa_acknowledged  BOOLEAN DEFAULT FALSE,
+        financial_consent   BOOLEAN DEFAULT FALSE,
+        consent_to_treat    BOOLEAN DEFAULT FALSE,
+        submitted_at        TIMESTAMP,
+        created_at          TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS vitals (
+        id             SERIAL PRIMARY KEY,
+        appointment_id INT REFERENCES appointments(id),
+        patient_id     INT REFERENCES patients(id),
+        provider_id    INT REFERENCES providers(id),
+        bp_systolic    INT,
+        bp_diastolic   INT,
+        heart_rate     INT,
+        temperature    DECIMAL(4,1),
+        weight_lbs     DECIMAL(5,1),
+        height_inches  DECIMAL(4,1),
+        o2_saturation  INT,
+        recorded_by    TEXT,
+        recorded_at    TIMESTAMP DEFAULT NOW(),
+        created_at     TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS orders (
+        id             SERIAL PRIMARY KEY,
+        appointment_id INT REFERENCES appointments(id),
+        patient_id     INT REFERENCES patients(id),
+        provider_id    INT REFERENCES providers(id),
+        order_type     TEXT,
+        order_name     TEXT,
+        order_code     TEXT,
+        status         TEXT DEFAULT 'ordered',
+        ordered_at     TIMESTAMP DEFAULT NOW(),
+        created_at     TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS ma_users (
+        id          SERIAL PRIMARY KEY,
+        name        TEXT NOT NULL,
+        pin         TEXT NOT NULL,
+        provider_id INT REFERENCES providers(id),
+        created_at  TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS clinical_notes (
+        id               SERIAL PRIMARY KEY,
+        appointment_id   INT REFERENCES appointments(id),
+        patient_id       INT REFERENCES patients(id),
+        provider_id      INT REFERENCES providers(id),
+        soap_subjective  TEXT,
+        soap_objective   TEXT,
+        soap_assessment  TEXT,
+        soap_plan        TEXT,
+        icd10_codes      JSONB DEFAULT '[]',
+        cpt_code         TEXT,
+        cpt_modifier     TEXT,
+        signed_at        TIMESTAMP,
+        signed_by        TEXT,
+        created_at       TIMESTAMP DEFAULT NOW(),
+        updated_at       TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    // Seed default MA user if none exists
+    const maCheck = await db.query(`SELECT id FROM ma_users LIMIT 1`)
+    if (!maCheck.rows.length) {
+      const provRow = await db.query(`SELECT id FROM providers ORDER BY id LIMIT 1`)
+      if (provRow.rows.length) {
+        await db.query(
+          `INSERT INTO ma_users (name, pin, provider_id) VALUES ('Sarah', '1234', $1)
+           ON CONFLICT DO NOTHING`,
+          [provRow.rows[0].id]
+        )
+        console.log('[API] MA user seeded')
+      }
+    }
+
     console.log('[API] DB schema ready')
   } catch (err) {
     console.error('[API] Schema setup error:', err.message)
@@ -56,3 +174,7 @@ async function start(port) {
 }
 
 module.exports = { app, start }
+
+if (require.main === module) {
+  start().catch(err => { console.error('[API] Fatal:', err.message); process.exit(1) })
+}

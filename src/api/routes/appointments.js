@@ -77,4 +77,49 @@ router.post('/appointments', verifyJWT, async (req, res, next) => {
   }
 })
 
+router.get('/appointments/:id', verifyJWT, async (req, res, next) => {
+  try {
+    const pid  = req.user.providerId
+    const apptId = parseInt(req.params.id, 10)
+    if (isNaN(apptId)) return res.status(400).json({ error: 'Invalid appointment id' })
+
+    const result = await db.query(`
+      SELECT
+        a.id, a.patient_id, a.date, a.visit_type,
+        a.eligibility_status, a.eligibility_summary,
+        a.copay, a.deductible_remaining,
+        TRIM(
+          COALESCE(REPLACE(p.first_name_encrypted,'ENC:',''),'') || ' ' ||
+          COALESCE(REPLACE(p.last_name_encrypted, 'ENC:',''),'')
+        ) AS patient_name,
+        REPLACE(p.dob_encrypted, 'ENC:', '') AS dob,
+        p.payer_name, p.payer_code, p.insurance_member_id AS member_id
+      FROM appointments a
+      JOIN patients p ON p.id = a.patient_id
+      WHERE a.id = $1 AND a.provider_id = $2
+    `, [apptId, pid])
+
+    if (!result.rows.length) return res.status(404).json({ error: 'Appointment not found' })
+    const r = result.rows[0]
+
+    return res.json({
+      id:                 r.id,
+      patientId:          r.patient_id,
+      patientName:        r.patient_name.trim(),
+      dob:                r.dob || null,
+      payerName:          r.payer_name,
+      payerCode:          r.payer_code,
+      memberId:           r.member_id,
+      copay:              r.copay != null ? parseFloat(r.copay) : null,
+      deductibleRemaining: r.deductible_remaining != null ? parseFloat(r.deductible_remaining) : null,
+      visitType:          r.visit_type,
+      date:               r.date,
+      eligibilityStatus:  r.eligibility_status,
+      eligibilitySummary: r.eligibility_summary
+    })
+  } catch (err) {
+    next(err)
+  }
+})
+
 module.exports = router

@@ -5,7 +5,6 @@ const db          = require('../../db')
 
 const router = Router()
 
-// Strip the dev-mode ENC: prefix to get the display name
 const nameExpr = `
   TRIM(COALESCE(REPLACE(p.first_name_encrypted, 'ENC:', ''), '')) || ' ' ||
   TRIM(COALESCE(REPLACE(p.last_name_encrypted,  'ENC:', ''), ''))
@@ -21,15 +20,24 @@ router.get('/dashboard', verifyJWT, async (req, res, next) => {
       todayApptRes,
       actionRes,
       credRes,
-      payerRes
+      payerRes,
+      sparklineRes
     ] = await Promise.all([
 
       db.query('SELECT name, specialty FROM providers WHERE id = $1', [pid]),
 
       db.query(`
         SELECT
-          (SELECT COALESCE(SUM(billed_amount), 0)
-             FROM claims WHERE provider_id = $1 AND DATE(date_of_service) = CURRENT_DATE
+          (SELECT COALESCE(SUM(
+             CASE visit_type
+               WHEN 'Annual Wellness'   THEN 250
+               WHEN 'New Patient'       THEN 350
+               WHEN 'Follow-up'         THEN 150
+               WHEN 'Sick Visit'        THEN 120
+               WHEN 'Medication Review' THEN 100
+               ELSE 150
+             END), 0)
+             FROM appointments WHERE provider_id = $1 AND DATE(date) = CURRENT_DATE
           ) AS today_revenue,
           (SELECT COUNT(*)
              FROM claims WHERE provider_id = $1 AND status IN ('needs_action','denied')
@@ -47,11 +55,12 @@ router.get('/dashboard', verifyJWT, async (req, res, next) => {
 
       db.query(`
         SELECT a.id, a.visit_type, a.eligibility_status, a.copay,
+               TO_CHAR(a.scheduled_time, 'FMHH12:MI AM') AS time,
                ${nameExpr} AS patient_name
         FROM appointments a
         JOIN patients p ON a.patient_id = p.id
         WHERE a.provider_id = $1 AND DATE(a.date) = CURRENT_DATE
-        ORDER BY a.id
+        ORDER BY a.scheduled_time ASC NULLS LAST
       `, [pid]),
 
       db.query(`
@@ -90,10 +99,23 @@ router.get('/dashboard', verifyJWT, async (req, res, next) => {
         HAVING COUNT(*) FILTER (WHERE status = 'denied') > 0
         ORDER BY denial_rate DESC
         LIMIT 5
+      `, [pid]),
+
+      db.query(`
+        SELECT
+          DATE_TRUNC('month', date_of_service)   AS month,
+          COALESCE(SUM(paid_amount), 0)          AS revenue,
+          COUNT(*) FILTER (WHERE status IN ('denied','needs_action')) AS claims_action,
+          ROUND(COUNT(*) FILTER (WHERE status NOT IN ('denied','needs_action')) * 100.0
+            / NULLIF(COUNT(*), 0), 1)            AS clean_claim_rate
+        FROM claims
+        WHERE provider_id = $1
+          AND date_of_service >= CURRENT_DATE - INTERVAL '6 months'
+        GROUP BY DATE_TRUNC('month', date_of_service)
+        ORDER BY month ASC
       `, [pid])
     ])
 
-    // Top denial code per payer — one small query each
     const payerPatterns = await Promise.all(
       payerRes.rows.map(async row => {
         const codeRes = await db.query(`
@@ -118,6 +140,7 @@ router.get('/dashboard', verifyJWT, async (req, res, next) => {
 
     const prov = providerRes.rows[0] || {}
     const m    = metricsRes.rows[0]  || {}
+    const sl   = sparklineRes.rows
 
     return res.json({
       provider: { name: prov.name, specialty: prov.specialty },
@@ -127,10 +150,15 @@ router.get('/dashboard', verifyJWT, async (req, res, next) => {
         outstandingAR:       parseFloat(m.outstanding_ar)        || 0,
         cleanClaimRate:      parseFloat(m.clean_claim_rate)      || 0
       },
+      sparklines: {
+        revenue:        sl.map(r => parseFloat(r.revenue)          || 0),
+        claimsAction:   sl.map(r => parseInt(r.claims_action)      || 0),
+        cleanClaimRate: sl.map(r => parseFloat(r.clean_claim_rate) || 0),
+      },
       todayAppointments: todayApptRes.rows.map(a => ({
         id:               a.id,
         patientName:      a.patient_name.trim(),
-        time:             null,
+        time:             a.time || null,
         visitType:        a.visit_type,
         eligibilityStatus: a.eligibility_status,
         copay:            a.copay
