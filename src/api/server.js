@@ -40,6 +40,27 @@ app.use('/api', agentsRouter)
 
 app.use(errorHandler)
 
+// CRON JOBS DISABLED — enable when going live
+// Replace with Medplum Bots when paid plan enabled
+// Bot IDs: eligibility 0304be0c, claimscrub 175a10ad,
+//          era 22ac39bf, credentialing 9b9c2ec3, practiceops d3fa8b90
+//
+// const cron = require('node-cron')
+//
+// // Daily at 6am UTC — credential expiry alerts
+// cron.schedule('0 6 * * *', async () => {
+//   const { runCredentialingAgent } = require('./agents/credentialingAgent')
+//   try { await runCredentialingAgent(1) }
+//   catch (err) { console.error('[CRON] Credentialing agent error:', err.message) }
+// })
+//
+// // Daily at 7am UTC — morning practice ops briefing
+// cron.schedule('0 7 * * *', async () => {
+//   const { runPracticeOpsAgent } = require('./agents/practiceOpsAgent')
+//   try { await runPracticeOpsAgent({ providerId: 1 }) }
+//   catch (err) { console.error('[CRON] Practice ops agent error:', err.message) }
+// })
+
 async function ensureDbSchema() {
   try {
     await db.query(`ALTER TABLE providers ADD COLUMN IF NOT EXISTS email         VARCHAR(255) UNIQUE`)
