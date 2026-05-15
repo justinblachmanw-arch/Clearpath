@@ -1,5 +1,6 @@
 import { PayerPattern } from '@/lib/types'
 import { AlertTriangle } from 'lucide-react'
+import { toTitleCase } from '@/lib/utils'
 
 export function AIInsightBar({ patterns }: { patterns: PayerPattern[] }) {
   if (patterns.length === 0) return null
@@ -15,7 +16,9 @@ export function AIInsightBar({ patterns }: { patterns: PayerPattern[] }) {
           AI Pattern Detection
         </p>
         {patterns.map((p, i) => (
-          <p key={i} style={{ fontSize: 12, color: '#1a5fb4', lineHeight: 1.5 }}>{p.message}</p>
+          <p key={i} style={{ fontSize: 12, color: '#1a5fb4', lineHeight: 1.5 }}>
+            <strong>{toTitleCase(p.payer)}</strong> — {p.message}
+          </p>
         ))}
       </div>
     </div>

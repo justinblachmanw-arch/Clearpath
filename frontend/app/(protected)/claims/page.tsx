@@ -7,7 +7,6 @@ import { useClaims } from '@/hooks/useClaims'
 import { apiDenialTrend } from '@/lib/api'
 import { DenialTrend } from '@/lib/types'
 import { Topbar } from '@/components/layout/Topbar'
-import { Metric } from '@/components/ui/Metric'
 import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
 import { ClaimsTable } from '@/components/claims/ClaimsTable'
 import { ARAgingChart } from '@/components/claims/ARAgingChart'
@@ -52,11 +51,27 @@ export default function ClaimsPage() {
         {error && <ErrorMessage message="Could not reach the API." />}
         {data && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16, maxWidth: 1200 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 12 }}>
-              <Metric label="Total Billed"    value={formatCurrency(totalBilled)} />
-              <Metric label="Collected"       value={formatCurrency(totalCollected)} valueColor="#1e7e34" />
-              <Metric label="Pending"         value={formatCurrency(totalPending)}   valueColor="#b45309" />
-              <Metric label="Denied"          value={formatCurrency(totalDenied)}    valueColor="#c0392b" />
+            {/* ── Inline stats bar ── */}
+            <div style={{ background: '#fff', border: '0.5px solid rgba(0,0,0,0.12)', borderRadius: 8, display: 'flex' }}>
+              {[
+                { label: 'Total Billed', value: formatCurrency(totalBilled), color: '#1a1a1a' },
+                { label: 'Collected',    value: formatCurrency(totalCollected), color: '#1e7e34' },
+                { label: 'Pending',      value: formatCurrency(totalPending),   color: '#b45309' },
+                { label: 'Denied',       value: formatCurrency(totalDenied),    color: '#c0392b' },
+              ].map((stat, i, arr) => (
+                <div key={stat.label} style={{
+                  flex: 1, padding: '12px 16px',
+                  borderRight: i < arr.length - 1 ? '0.5px solid rgba(0,0,0,0.08)' : undefined,
+                }}>
+                  <p style={{ fontSize: 11, fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: 4 }}>{stat.label}</p>
+                  <p style={{ fontSize: 18, fontWeight: 700, color: stat.color, letterSpacing: '-0.02em', lineHeight: 1.2 }}>{stat.value}</p>
+                  {stat.label === 'Denied' && currentRate !== null && prevRate !== null && (
+                    <p style={{ fontSize: 11, marginTop: 4, color: rateImproved ? '#1e7e34' : '#c0392b' }}>
+                      {rateImproved ? '↓' : '↑'} {Math.abs(currentRate - prevRate).toFixed(1)}% denial rate vs last month
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
 
             <Card>

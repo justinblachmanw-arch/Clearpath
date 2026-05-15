@@ -116,22 +116,23 @@ function qualityAlerts(icd10s: string[], vitals: Encounter['vitals']): string[] 
 
 function VitalsRow({ v }: { v: Encounter['vitals'] }) {
   if (!v) return <p style={{ fontSize: 13, color: '#aaa' }}>No vitals recorded</p>
+  const chips = [
+    v.bpSystolic   ? { label: 'BP',     value: `${v.bpSystolic}/${v.bpDiastolic}` } : null,
+    v.heartRate    ? { label: 'HR',     value: `${v.heartRate} bpm` } : null,
+    v.temperature  ? { label: 'Temp',   value: `${v.temperature}°F` } : null,
+    v.weightLbs    ? { label: 'Wt',     value: `${v.weightLbs} lb` } : null,
+    v.o2Saturation ? { label: 'O₂',    value: `${v.o2Saturation}%` } : null,
+  ].filter(Boolean) as { label: string; value: string }[]
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4px 12px' }}>
-      {v.bpSystolic   && <VRow label="BP"     value={`${v.bpSystolic}/${v.bpDiastolic} mmHg`} />}
-      {v.heartRate    && <VRow label="HR"     value={`${v.heartRate} bpm`} />}
-      {v.temperature  && <VRow label="Temp"   value={`${v.temperature}°F`} />}
-      {v.weightLbs    && <VRow label="Weight" value={`${v.weightLbs} lbs`} />}
-      {v.o2Saturation && <VRow label="O₂"    value={`${v.o2Saturation}%`} />}
-    </div>
-  )
-}
-
-function VRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div>
-      <span style={{ fontSize: 11, color: '#999' }}>{label} </span>
-      <span style={{ fontSize: 13, fontWeight: 600, color: '#111' }}>{value}</span>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2,1fr)', gap: 6 }}>
+      {chips.map(c => (
+        <div key={c.label} style={{
+          background: '#f5f5f5', borderRadius: 6, padding: '6px 10px',
+        }}>
+          <p style={{ fontSize: 10, fontWeight: 600, color: '#999', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 2 }}>{c.label}</p>
+          <p style={{ fontSize: 13, fontWeight: 600, color: '#111', lineHeight: 1 }}>{c.value}</p>
+        </div>
+      ))}
     </div>
   )
 }
@@ -428,7 +429,8 @@ export default function EncounterPage() {
                                   <span key={code} style={{
                                     display: 'inline-flex', alignItems: 'center', gap: 6,
                                     padding: '4px 10px', borderRadius: 6,
-                                    background: '#eff6ff', color: '#1d4ed8', fontSize: 12, fontWeight: 600,
+                                    background: 'transparent', border: '0.5px solid #1d4ed8',
+                                    color: '#1d4ed8', fontSize: 12, fontWeight: 600,
                                   }}>
                                     {code} {meta ? `— ${meta.description.split(',')[0]}` : ''}
                                     <button onClick={() => removeIcd10(code)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#93c5fd', fontSize: 14, padding: 0 }}>✕</button>
@@ -520,11 +522,10 @@ export default function EncounterPage() {
                           onClick={handleSign}
                           disabled={!allChecksPass || signing}
                           style={{
-                            padding: '12px 24px', fontSize: 14, fontWeight: 700,
+                            width: '100%', padding: '13px 24px', fontSize: 14, fontWeight: 700,
                             background: !allChecksPass || signing ? '#e5e5e5' : '#111',
                             color: !allChecksPass || signing ? '#999' : '#fff',
                             border: 'none', borderRadius: 8, cursor: !allChecksPass || signing ? 'not-allowed' : 'pointer',
-                            alignSelf: 'flex-start',
                           }}
                         >
                           {signing ? 'Running scrub…' : 'Sign note & generate claim'}

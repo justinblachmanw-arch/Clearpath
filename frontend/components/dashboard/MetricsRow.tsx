@@ -1,6 +1,6 @@
 import { Metric } from '@/components/ui/Metric'
 import { DashboardMetrics, Sparklines } from '@/lib/types'
-import { formatCurrency } from '@/lib/utils'
+import { formatCurrency, computeTrend } from '@/lib/utils'
 
 export function MetricsRow({ metrics, sparklines }: { metrics: DashboardMetrics; sparklines?: Sparklines }) {
   return (
@@ -11,6 +11,7 @@ export function MetricsRow({ metrics, sparklines }: { metrics: DashboardMetrics;
         valueColor="#1e7e34"
         sparkline={sparklines?.revenue}
         sparklineColor="#1e7e34"
+        trend={computeTrend(sparklines?.revenue)}
       />
       <Metric
         label="Claims Needing Action"
@@ -18,6 +19,7 @@ export function MetricsRow({ metrics, sparklines }: { metrics: DashboardMetrics;
         valueColor={metrics.claimsNeedingAction > 0 ? '#c0392b' : '#1a1a1a'}
         sparkline={sparklines?.claimsAction}
         sparklineColor="#c0392b"
+        trend={computeTrend(sparklines?.claimsAction)}
       />
       <Metric
         label="Outstanding A/R"
@@ -30,6 +32,7 @@ export function MetricsRow({ metrics, sparklines }: { metrics: DashboardMetrics;
         valueColor={metrics.cleanClaimRate >= 90 ? '#1e7e34' : '#b45309'}
         sparkline={sparklines?.cleanClaimRate}
         sparklineColor={metrics.cleanClaimRate >= 90 ? '#1e7e34' : '#b45309'}
+        trend={computeTrend(sparklines?.cleanClaimRate)}
       />
     </div>
   )

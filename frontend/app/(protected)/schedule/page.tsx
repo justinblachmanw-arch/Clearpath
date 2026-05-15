@@ -6,7 +6,7 @@ import { useDashboard } from '@/hooks/useDashboard'
 import { Topbar } from '@/components/layout/Topbar'
 import { Badge, eligibilityVariant, eligibilityLabel } from '@/components/ui/Badge'
 import { PageLoader, ErrorMessage } from '@/components/ui/LoadingSpinner'
-import { formatCurrency } from '@/lib/utils'
+import { formatCurrency, formatTime } from '@/lib/utils'
 
 export default function SchedulePage() {
   const router = useRouter()
@@ -51,7 +51,7 @@ export default function SchedulePage() {
                   onMouseLeave={e => (e.currentTarget.style.background = '')}
                 >
                   <div style={{ width: 60, fontSize: 12, color: '#999', flexShrink: 0 }}>
-                    {appt.time ?? '—'}
+                    {appt.time ? formatTime(appt.time) : '—'}
                   </div>
                   <div style={{ flex: 1 }}>
                     <p style={{ fontWeight: 600, fontSize: 14, color: '#1a1a1a' }}>{appt.patientName}</p>

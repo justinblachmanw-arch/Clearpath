@@ -36,6 +36,6 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
 }

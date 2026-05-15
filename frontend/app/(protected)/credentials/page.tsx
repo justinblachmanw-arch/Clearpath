@@ -8,6 +8,7 @@ import { CredentialCard } from '@/components/credentials/CredentialCard'
 import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
 import { PageLoader, ErrorMessage } from '@/components/ui/LoadingSpinner'
+import { toTitleCase } from '@/lib/utils'
 
 export default function CredentialsPage() {
   const router = useRouter()
@@ -42,7 +43,7 @@ export default function CredentialsPage() {
                       borderBottom: i < data.enrollments.length - 1 ? '1px solid #f0f0f0' : undefined,
                     }}>
                       <div>
-                        <p style={{ fontSize: 13, fontWeight: 500 }}>{e.payerName}</p>
+                        <p style={{ fontSize: 13, fontWeight: 500 }}>{toTitleCase(e.payerName)}</p>
                         <p style={{ fontSize: 11, color: '#999' }}>{e.payerCode}</p>
                       </div>
                       <Badge variant={e.status === 'active' ? 'success' : 'warning'}>{e.status}</Badge>

@@ -1,57 +1,62 @@
 import { Credential } from '@/lib/types'
-import { formatDate } from '@/lib/utils'
+import { formatShortDate } from '@/lib/utils'
 import { ExternalLink } from 'lucide-react'
 
 function urgencyColor(days: number | null) {
-  if (days === null) return { bar: '#999', text: '#666', bg: '#f5f5f5' }
-  if (days < 30)  return { bar: '#c0392b', text: '#c0392b', bg: '#fef2f2' }
-  if (days < 60)  return { bar: '#b45309', text: '#b45309', bg: '#fffbeb' }
-  return { bar: '#1e7e34', text: '#1e7e34', bg: '#f0fdf4' }
+  if (days === null) return { bar: '#999', text: '#666', bg: '#fff' }
+  if (days < 30)  return { bar: '#c0392b', text: '#c0392b', bg: '#fef9f9' }
+  if (days < 60)  return { bar: '#b45309', text: '#b45309', bg: '#fffdf5' }
+  if (days < 90)  return { bar: '#1e7e34', text: '#1e7e34', bg: '#f9fef9' }
+  return { bar: '#d1d5db', text: '#666', bg: '#fff' }
 }
 
 export function CredentialCard({ cred }: { cred: Credential }) {
   const colors = urgencyColor(cred.daysRemaining)
-  const pct = cred.daysRemaining == null ? 100
+  const pct    = cred.daysRemaining == null ? 100
     : Math.min(100, Math.max(0, (cred.daysRemaining / 365) * 100))
 
   return (
     <div style={{
-      border: '1px solid #e5e5e5', borderRadius: 8,
-      padding: 16, background: colors.bg,
+      border: '0.5px solid rgba(0,0,0,0.12)',
+      borderRadius: 8,
+      padding: '14px 16px',
+      background: colors.bg,
     }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-        <div>
+        <div style={{ flex: 1, minWidth: 0 }}>
           <p style={{ fontWeight: 600, fontSize: 13, color: '#1a1a1a' }}>
-            {cred.credentialType.replace(/_/g, ' ')}
+            {cred.credentialType.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}
           </p>
           {cred.issuingBody && (
-            <p style={{ fontSize: 12, color: '#666', marginTop: 2 }}>{cred.issuingBody}</p>
+            <p style={{ fontSize: 11, color: '#999', marginTop: 2 }}>{cred.issuingBody}</p>
           )}
         </div>
         {cred.daysRemaining != null && (
-          <div style={{ textAlign: 'right' }}>
-            <p style={{ fontSize: 28, fontWeight: 700, color: colors.text, lineHeight: 1 }}>
+          <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: 12 }}>
+            <p style={{ fontSize: 28, fontWeight: 700, color: colors.text, lineHeight: 1, letterSpacing: '-0.02em' }}>
               {cred.daysRemaining}
             </p>
-            <p style={{ fontSize: 10, color: colors.text, marginTop: 1 }}>days left</p>
+            <p style={{ fontSize: 10, color: colors.text, marginTop: 2, fontWeight: 500, textTransform: 'uppercase', letterSpacing: '0.05em' }}>days left</p>
           </div>
         )}
       </div>
 
-      <div style={{ margin: '12px 0 8px', height: 4, background: '#e5e5e5', borderRadius: 99 }}>
+      {/* Progress bar — 3px */}
+      <div style={{ margin: '10px 0 6px', height: 3, background: '#ebebeb', borderRadius: 99 }}>
         <div style={{ height: '100%', background: colors.bar, borderRadius: 99, width: `${pct}%`, transition: 'width 0.3s' }} />
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <p style={{ fontSize: 12, color: '#666' }}>
-          {cred.expiryDate ? `Expires ${formatDate(cred.expiryDate)}` : 'No expiry'}
+        <p style={{ fontSize: 11, color: '#aaa' }}>
+          {cred.expiryDate ? `Expires ${formatShortDate(cred.expiryDate)}` : 'No expiry'}
         </p>
-        {cred.renewalUrl && cred.daysRemaining != null && cred.daysRemaining < 60 && (
+        {cred.renewalUrl && (
           <a href={cred.renewalUrl} target="_blank" rel="noreferrer" style={{
-            fontSize: 12, color: '#1a5fb4', display: 'flex', alignItems: 'center', gap: 4,
-            textDecoration: 'none', fontWeight: 600,
+            fontSize: 11, color: '#1a5fb4',
+            display: 'flex', alignItems: 'center', gap: 3,
+            textDecoration: 'none', fontWeight: 500,
           }}>
-            Renew now <ExternalLink size={11} />
+            Renew <ExternalLink size={10} />
           </a>
         )}
       </div>
