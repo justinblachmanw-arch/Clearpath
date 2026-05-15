@@ -16,6 +16,7 @@ const credentialsRouter  = require('./routes/credentials')
 const financialsRouter   = require('./routes/financials')
 const intakeRouter       = require('./routes/intake')
 const maRouter           = require('./routes/ma')
+const agentsRouter       = require('./routes/agents')
 
 const app = express()
 
@@ -35,6 +36,7 @@ app.use('/api', credentialsRouter)
 app.use('/api', financialsRouter)
 app.use('/api', intakeRouter)
 app.use('/api', maRouter)
+app.use('/api', agentsRouter)
 
 app.use(errorHandler)
 
