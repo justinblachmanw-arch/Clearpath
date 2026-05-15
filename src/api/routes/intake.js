@@ -102,7 +102,7 @@ router.post('/patients/register', async (req, res, next) => {
     if (!provRes.rows.length) return res.status(500).json({ error: 'No provider configured' })
     const { id: providerId, medplum_practitioner_id: practitionerId } = provRes.rows[0]
 
-    const token = `PT-${Buffer.from(firstName + lastName + dob).toString('hex').slice(0, 8).toUpperCase()}`
+    const token = `PT-${Buffer.from(firstName.toLowerCase() + lastName.toLowerCase() + dob).toString('hex').slice(0, 16).toUpperCase()}`
 
     // Create FHIR Patient in Medplum
     let medplumPatientId = null
