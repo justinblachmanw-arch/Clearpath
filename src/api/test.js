@@ -1,13 +1,12 @@
 require('dotenv').config()
 const http = require('http')
-const { start }       = require('./server')
 const { getMockEDI835 } = require('../lib/ediReader')
 
 const GREEN = '\x1b[32m'
 const RED   = '\x1b[31m'
 const RESET = '\x1b[0m'
 
-let PORT
+const PORT = parseInt(process.env.API_PORT) || 3001
 let token
 
 function apiRequest(method, path, { body, headers = {} } = {}) {
@@ -135,15 +134,11 @@ async function runTests() {
 }
 
 ;(async () => {
-  let server
   try {
-    server = await start()
-    PORT   = server.address().port
     await runTests()
   } catch (err) {
     console.error('Test runner error:', err)
   } finally {
-    if (server) server.close()
     process.exit(fail > 0 ? 1 : 0)
   }
 })()
