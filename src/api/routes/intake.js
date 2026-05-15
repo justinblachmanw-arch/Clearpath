@@ -241,10 +241,12 @@ router.post('/intake/:appointmentId', async (req, res, next) => {
       hipaaAcknowledged, financialConsent, consentToTreat
     } = req.body
 
-    // Get patient + appointment info including Medplum IDs
+    // Get patient + appointment info including Medplum IDs and on-file insurance
     const apptRes = await db.query(`
       SELECT a.patient_id, a.medplum_encounter_id,
-             p.medplum_patient_id
+             p.medplum_patient_id,
+             p.payer_name AS patient_payer_name,
+             p.insurance_member_id AS patient_member_id
       FROM appointments a
       JOIN patients p ON p.id = a.patient_id
       WHERE a.id = $1
@@ -305,6 +307,7 @@ router.post('/intake/:appointmentId', async (req, res, next) => {
 
     // FHIR dual-write (non-blocking — don't fail intake if FHIR write fails)
     if (medplumPatientId) {
+      // Always run saveFHIRIntake — consents must be saved even when allergies/conditions are empty
       fhir.saveFHIRIntake({
         medplumPatientId,
         medplumEncounterId,
@@ -312,16 +315,18 @@ router.post('/intake/:appointmentId', async (req, res, next) => {
         medications: (currentMedications || []).map(m => typeof m === 'string' ? m : m.name || m),
         allergies:   (allergies || []).map(a => typeof a === 'string' ? a : a.name || a),
         conditions:  (conditions || []).map(c => typeof c === 'string' ? c : c.name || c),
-        consents:    { hipaa: hipaaAcknowledged, treatment: consentToTreat }
+        consents:    { hipaa: hipaaAcknowledged, treatment: consentToTreat, financial: financialConsent }
       }).catch(err => console.error('[INTAKE] FHIR intake save failed (non-blocking):', err.message))
 
-      // Save extracted insurance to FHIR Coverage if we got card data
-      if (extractedInsurance?.payerName) {
+      // Save Coverage — prefer submitted insurance data, fall back to patient's on-file insurance
+      const insurancePayerName = extractedInsurance?.payerName || apptRow?.patient_payer_name
+      const insuranceMemberId  = extractedInsurance?.memberID  || apptRow?.patient_member_id
+      if (insurancePayerName) {
         fhir.savePatientInsurance(medplumPatientId, {
-          payerName:   extractedInsurance.payerName,
-          memberId:    extractedInsurance.memberID,
-          groupNumber: extractedInsurance.groupNumber,
-          planName:    extractedInsurance.planName
+          payerName:   insurancePayerName,
+          memberId:    insuranceMemberId  || null,
+          groupNumber: extractedInsurance?.groupNumber || null,
+          planName:    extractedInsurance?.planName    || null
         }).catch(err => console.error('[INTAKE] FHIR coverage save failed (non-blocking):', err.message))
       }
     }

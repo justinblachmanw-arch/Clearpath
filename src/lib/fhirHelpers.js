@@ -320,11 +320,29 @@ async function saveFHIRIntake({ medplumPatientId, medplumEncounterId, chiefCompl
       result.consents.push(r.id)
     }
 
-    if (chiefComplaint && medplumEncounterId) {
-      await client.updateResource({
-        ...(await client.readResource('Encounter', medplumEncounterId)),
-        reasonCode: [{ text: chiefComplaint }]
+    if (consents?.financial) {
+      const r = await client.createResource({
+        resourceType: 'Consent',
+        status: 'active',
+        scope: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/consentscope', code: 'patient-privacy' }] },
+        category: [{ coding: [{ system: 'http://terminology.hl7.org/CodeSystem/consentcategorycodes', code: 'acd', display: 'Financial responsibility consent' }] }],
+        patient: { reference: patRef },
+        dateTime: now,
+        policyRule: { coding: [{ system: 'http://terminology.hl7.org/CodeSystem/v3-ActCode', code: 'PAYDECL' }] }
       })
+      result.consents.push(r.id)
+    }
+
+    // Update Encounter with chief complaint — isolated so a failure here never blocks consent saves
+    if (chiefComplaint && medplumEncounterId) {
+      try {
+        await client.updateResource({
+          ...(await client.readResource('Encounter', medplumEncounterId)),
+          reasonCode: [{ text: chiefComplaint }]
+        })
+      } catch (encErr) {
+        console.error('[FHIR] Encounter reasonCode update failed (non-blocking):', encErr.message)
+      }
     }
 
     console.log(`[FHIR] Intake saved: ${result.allergies.length} allergies, ${result.medications.length} meds, ${result.conditions.length} conditions`)
