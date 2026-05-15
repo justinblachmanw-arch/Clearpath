@@ -9,7 +9,7 @@ const router = Router()
 
 const apptSchema = Joi.object({
   patientId:        Joi.number().integer().positive().required(),
-  date:             Joi.string().pattern(/^\d{4}-\d{2}-\d{2}$/).required(),
+  date:             Joi.string().pattern(/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2}(\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$/).required(),
   visitType:        Joi.string().min(2).max(100).required(),
   insuranceMemberId: Joi.string().optional().allow(''),
   payerCode:        Joi.string().optional().allow('')
@@ -20,7 +20,8 @@ router.post('/appointments', verifyJWT, async (req, res, next) => {
     const { error, value } = apptSchema.validate(req.body)
     if (error) return res.status(400).json({ error: error.details[0].message })
 
-    const { patientId, date, visitType, insuranceMemberId, payerCode } = value
+    const { patientId, visitType, insuranceMemberId, payerCode } = value
+    const date = value.date.slice(0, 10)   // normalise YYYY-MM-DDTHH:MM:SS → YYYY-MM-DD
     const providerId = req.user.providerId
 
     const patientRes = await db.query(

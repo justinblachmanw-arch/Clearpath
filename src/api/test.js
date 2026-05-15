@@ -2,9 +2,10 @@ require('dotenv').config()
 const http = require('http')
 const { getMockEDI835 } = require('../lib/ediReader')
 
-const GREEN = '\x1b[32m'
-const RED   = '\x1b[31m'
-const RESET = '\x1b[0m'
+const GREEN  = '\x1b[32m'
+const RED    = '\x1b[31m'
+const YELLOW = '\x1b[33m'
+const RESET  = '\x1b[0m'
 
 const PORT = parseInt(process.env.API_PORT) || 3001
 let token
@@ -47,16 +48,21 @@ let pass = 0
 let fail = 0
 
 function check(name, cond, detail = '') {
-  const label = cond ? `${GREEN}PASS${RESET}` : `${RED}FAIL${RESET}`
+  const label  = cond ? `${GREEN}PASS${RESET}` : `${RED}FAIL${RESET}`
   const suffix = detail ? `  (${detail})` : ''
   console.log(`  ${label}  ${name}${suffix}`)
   cond ? pass++ : fail++
+  return cond
+}
+
+function skip(name) {
+  console.log(`  ${YELLOW}SKIP${RESET}  ${name}`)
 }
 
 async function runTests() {
-  console.log('\n=== Health Platform API Tests ===\n')
+  console.log(`\n=== Health Platform API Tests  (port ${PORT}) ===\n`)
 
-  // 1. Health check — no auth
+  // 1. Health check — no auth needed
   try {
     const r = await apiRequest('GET', '/health')
     check('GET  /api/health', r.status === 200 && r.body.status === 'ok',
@@ -65,67 +71,83 @@ async function runTests() {
     check('GET  /api/health', false, e.message)
   }
 
-  // 2. Login
+  // 2. Login — get JWT, abort auth tests if this fails
+  let loginOk = false
   try {
     const r = await apiRequest('POST', '/auth/login', {
       body: { email: 'dr.patel@clearpathhealth.com', password: 'password' }
     })
-    token = r.body.token
-    check('POST /api/auth/login', r.status === 200 && !!token,
+    token    = r.body.token
+    loginOk  = check('POST /api/auth/login', r.status === 200 && !!token,
       `provider=${r.body.provider?.name}`)
   } catch (e) {
     check('POST /api/auth/login', false, e.message)
   }
 
-  // 3. Dashboard
-  try {
-    const r = await apiRequest('GET', '/dashboard', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    check('GET  /api/dashboard', r.status === 200 && !!r.body.metrics,
-      `AR=$${r.body.metrics?.outstandingAR?.toFixed(2)}  actions=${r.body.metrics?.claimsNeedingAction}`)
-  } catch (e) {
-    check('GET  /api/dashboard', false, e.message)
-  }
+  if (!loginOk) {
+    console.log(`\n  ${RED}Login failed — skipping all authenticated tests${RESET}\n`)
+    skip('GET  /api/dashboard')
+    skip('POST /api/appointments  (+ eligibility agent)')
+    skip('GET  /api/claims/action-items')
+    skip('POST /api/webhooks/era')
+    fail += 4
+  } else {
+    // 3. Dashboard
+    try {
+      const r = await apiRequest('GET', '/dashboard', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      check('GET  /api/dashboard', r.status === 200 && !!r.body.metrics,
+        `AR=$${r.body.metrics?.outstandingAR?.toFixed(2)}  actions=${r.body.metrics?.claimsNeedingAction}`)
+    } catch (e) {
+      check('GET  /api/dashboard', false, e.message)
+    }
 
-  // 4. Create appointment (eligibility agent runs inline)
-  try {
-    const date = new Date().toISOString().split('T')[0]
-    const r = await apiRequest('POST', '/appointments', {
-      body: { patientId: 1, date, visitType: 'Office Visit' },
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    check('POST /api/appointments', r.status === 201 && !!r.body.appointment?.id,
-      `id=${r.body.appointment?.id}  eligibility=${r.body.appointment?.eligibilityStatus}`)
-  } catch (e) {
-    check('POST /api/appointments', false, e.message)
-  }
+    // 4. Create appointment — eligibility agent must fire and return a status
+    try {
+      const date = new Date().toISOString().split('T')[0]
+      const r    = await apiRequest('POST', '/appointments', {
+        body:    { patientId: 1, date, visitType: 'Office Visit' },
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      const appt         = r.body.appointment
+      const hasId        = !!appt?.id
+      const hasEligibility = !!appt?.eligibilityStatus
+      check(
+        'POST /api/appointments  (+ eligibility agent)',
+        r.status === 201 && hasId && hasEligibility,
+        `id=${appt?.id}  eligibility=${appt?.eligibilityStatus}  copay=$${appt?.copay ?? 'n/a'}`
+      )
+    } catch (e) {
+      check('POST /api/appointments  (+ eligibility agent)', false, e.message)
+    }
 
-  // 5. Claims action items
-  try {
-    const r = await apiRequest('GET', '/claims/action-items', {
-      headers: { Authorization: `Bearer ${token}` }
-    })
-    check('GET  /api/claims/action-items', r.status === 200 && typeof r.body.total === 'number',
-      `total=${r.body.total}  revenueAtRisk=$${r.body.revenueAtRisk?.toFixed(2)}`)
-  } catch (e) {
-    check('GET  /api/claims/action-items', false, e.message)
-  }
+    // 5. Claims action items
+    try {
+      const r = await apiRequest('GET', '/claims/action-items', {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      check('GET  /api/claims/action-items', r.status === 200 && typeof r.body.total === 'number',
+        `total=${r.body.total}  revenueAtRisk=$${r.body.revenueAtRisk?.toFixed(2)}`)
+    } catch (e) {
+      check('GET  /api/claims/action-items', false, e.message)
+    }
 
-  // 6. ERA webhook — raw EDI text, no JWT
-  try {
-    const edi = getMockEDI835('aetna_mixed')
-    const r = await apiRequest('POST', '/webhooks/era', {
-      body: edi,
-      headers: {
-        'Content-Type':    'text/plain',
-        'X-Webhook-Secret': process.env.WEBHOOK_SECRET || 'clearpath_webhook_secret_dev'
-      }
-    })
-    check('POST /api/webhooks/era', r.status === 200 && typeof r.body.claimsProcessed === 'number',
-      `claims=${r.body.claimsProcessed}  paid=$${r.body.totalPaid?.toFixed(2)}`)
-  } catch (e) {
-    check('POST /api/webhooks/era', false, e.message)
+    // 6. ERA webhook — raw EDI, no JWT
+    try {
+      const edi = getMockEDI835('aetna_mixed')
+      const r   = await apiRequest('POST', '/webhooks/era', {
+        body:    edi,
+        headers: {
+          'Content-Type':     'text/plain',
+          'X-Webhook-Secret': process.env.WEBHOOK_SECRET || 'clearpath_webhook_secret_dev'
+        }
+      })
+      check('POST /api/webhooks/era', r.status === 200 && typeof r.body.claimsProcessed === 'number',
+        `claims=${r.body.claimsProcessed}  paid=$${r.body.totalPaid?.toFixed(2)}`)
+    } catch (e) {
+      check('POST /api/webhooks/era', false, e.message)
+    }
   }
 
   const total = pass + fail
