@@ -1,6 +1,7 @@
 require('dotenv').config()
 const OpenAI = require('openai')
 const db = require('../db')
+const { getCodingContext } = require('../lib/codingIntelligence')
 
 // Timely filing windows in days per payer — default 90 if unknown
 const TIMELY_FILING_WINDOWS = {
@@ -204,6 +205,21 @@ async function validateCodeCombinations(claim) {
     `${l.procedureCode}${l.modifiers.length ? ' -' + l.modifiers.join(' -') : ''} ($${l.billedAmount})`
   ).join(', ')
 
+  // Get full coding context (payer policy + AMA guidelines + NCCI bundling) for each E&M line
+  const emLines = claim.serviceLines.filter(l => /^992\d\d$|^993\d\d$/.test(l.procedureCode))
+  const contextBlocks = []
+  for (const line of emLines) {
+    const ctx = await getCodingContext({
+      payerCode:      claim.payerCode,
+      cptCode:        line.procedureCode,
+      diagnosisCodes: claim.diagnosisCodes,
+    }).catch(() => null)
+    if (ctx?.summary) contextBlocks.push(ctx.summary)
+  }
+  const policySection = contextBlocks.length
+    ? `\nCoding intelligence:\n${contextBlocks.join('\n\n')}\n`
+    : ''
+
   // No PHI — only billing codes and clinical context (no patient identifiers)
   const prompt = `
 You are a medical billing auditor reviewing a claim before submission.
@@ -213,7 +229,7 @@ Place of service: ${claim.placeOfService}
 Diagnosis codes (ICD-10): ${claim.diagnosisCodes.join(', ')}
 Procedures: ${procedures}
 Note documented: ${claim.noteDocumented}
-
+${policySection}
 Respond in JSON with exactly this shape:
 {
   "valid": true or false,
@@ -221,7 +237,7 @@ Respond in JSON with exactly this shape:
   "analysis": "one sentence summary"
 }
 
-Check: (1) Do diagnosis codes support medical necessity for these procedures? (2) Are there NCCI bundling issues? (3) Are the ICD-10 codes valid and specific enough? No patient information in your response.
+Check: (1) Do diagnosis codes support medical necessity for these procedures? (2) Are there NCCI bundling issues? (3) Are the ICD-10 codes valid and specific enough?${policySection ? ' (4) Does the documentation meet the published AMA and payer requirements for these E&M codes based on the coding intelligence above?' : ''} No patient information in your response.
 `
 
   try {

@@ -188,6 +188,50 @@ Screens:
 - EPIC integration: Particle Health or Health Gorilla (FHIR R4)
 - EDI parsing: node-x12
 
+## Payer Intelligence Layer
+
+### payer_policies table (PostgreSQL)
+Stores scraped and GPT-4o enriched coverage criteria for each major payer × E&M CPT code.
+
+Payers: Medicare, Aetna, UnitedHealthcare, BCBS, Cigna
+CPT codes: 99202-99215, 99381-99396
+
+Fields:
+- `payer_code`, `cpt_code` — the lookup key (unique constraint)
+- `coverage_criteria` — what the payer requires for medical necessity
+- `documentation_required` — specific note elements required
+- `common_denial_reasons` — what triggers denial for this code/payer
+- `appeal_strategy` — how to fight denials
+- `source` — `cms_direct` or `gpt4o_structured` (tells us what to re-verify)
+- `last_scraped_at` — when to refresh
+
+### How it connects to existing agents
+
+**claimScrubAgent.js:**
+Before the GPT-4o validation step, queries `payer_policies` for `payer_code + cpt_code` on each E&M line. Injects `coverage_criteria` and `documentation_required` into the validation prompt. Surfaces gaps as specific scrub failures with payer-cited fix instructions.
+
+**eraAgent.js:**
+In `enrichActionItem`, queries `payer_policies` for the denied claim's payer + CPT. Injects `appeal_strategy` and `documentation_required` into the appeal instruction prompt so the provider knows exactly what to cite.
+
+**Provider encounter UI (future):**
+AI assist panel will query `GET /api/payer-policies/:payerCode/:cptCode` to show the provider exactly what their note needs before signing. (Endpoint not yet built — add when connecting encounter page to payer policy layer.)
+
+### Refresh schedule
+- Manual: `POST /api/admin/refresh-payer-policies` (X-Webhook-Secret required)
+- Automated: Commented-out cron in server.js — enable at launch (1st of each month, 8am UTC)
+- Monthly refresh catches payer policy updates
+
+### Source hierarchy
+1. Direct scrape from CMS/payer website (preferred, tagged `cms_direct`)
+2. GPT-4o structured summary of publicly known payer requirements (tagged `gpt4o_structured`)
+3. Records without source → treat as unverified, refresh first
+
+All records tagged with `source` and `last_scraped_at`.
+
+### Scraper
+`src/lib/payerPolicyScraper.js` — exports `runPayerPolicyScraper()` and `getPayerPolicy(payerCode, cptCode)`.
+Run standalone: `node src/lib/payerPolicyScraper.js`
+
 ## Competitors
 - Tebra (Kareo + PatientPop merger) — direct competitor, poor UX, bad support
 - athenahealth — enterprise focused, too complex for solo providers

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { parseERA, detectPatterns } = require('../lib/eraParser')
 const { getDenialInfo } = require('../lib/denialCodes')
+const { getCodingContext, getCARCContext } = require('../lib/codingIntelligence')
 const OpenAI = require('openai')
 const db = require('../db')
 
@@ -179,6 +180,22 @@ async function runERAAgent(era835Files, providerId = 1) {
 async function enrichActionItem({ item, claim, payerName }) {
   const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
 
+  // Get full coding context + CARC-specific fix action
+  const payerCode = payerName?.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 10) || ''
+  const [codingCtx, carcCtx] = await Promise.all([
+    item.procedureCode
+      ? getCodingContext({ payerCode, cptCode: item.procedureCode, diagnosisCodes: [] }).catch(() => null)
+      : Promise.resolve(null),
+    getCARCContext(item.code).catch(() => null),
+  ])
+
+  const policySection = codingCtx?.summary
+    ? `\nCoding context:\n${codingCtx.summary.slice(0, 800)}`
+    : ''
+  const carcSection = carcCtx
+    ? `\nFor denial code ${item.code} (${carcCtx.description}): ${carcCtx.fix_action || ''}\nAppeal angle: ${carcCtx.appeal_angle || ''}`
+    : ''
+
   const prompt = `
 You are a healthcare billing expert helping an independent provider resolve a claim denial.
 
@@ -188,9 +205,10 @@ Denial code: ${item.code}
 Denial reason: ${item.plain}
 Amount at stake: $${item.amount}
 Priority: ${item.priority}
+${policySection}${carcSection}
 
 Write a specific, actionable 2-sentence instruction for the provider to resolve this denial.
-Be direct. No filler. Reference the specific code and amount.
+Be direct. No filler. Reference the specific code and amount. Cite ${payerName}'s published requirements and the CARC-specific fix action where relevant.
 Do not include any patient information.
 `
 

@@ -17,6 +17,7 @@ const financialsRouter   = require('./routes/financials')
 const intakeRouter       = require('./routes/intake')
 const maRouter           = require('./routes/ma')
 const agentsRouter       = require('./routes/agents')
+const adminRouter        = require('./routes/admin')
 
 const app = express()
 
@@ -37,8 +38,18 @@ app.use('/api', financialsRouter)
 app.use('/api', intakeRouter)
 app.use('/api', maRouter)
 app.use('/api', agentsRouter)
+app.use('/api', adminRouter)
 
 app.use(errorHandler)
+
+// PAYER POLICY REFRESH — runs 1st of each month
+// TODO: Enable when going live
+// const cron = require('node-cron')
+// cron.schedule('0 8 1 * *', async () => {
+//   const { runPayerPolicyScraper } = require('../lib/payerPolicyScraper')
+//   try { await runPayerPolicyScraper() }
+//   catch (err) { console.error('[CRON] Payer policy refresh error:', err.message) }
+// })
 
 // CRON JOBS DISABLED — enable when going live
 // Replace with Medplum Bots when paid plan enabled
@@ -161,6 +172,64 @@ async function ensureDbSchema() {
         signed_by        TEXT,
         created_at       TIMESTAMP DEFAULT NOW(),
         updated_at       TIMESTAMP DEFAULT NOW()
+      )
+    `)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS payer_policies (
+        id                     SERIAL PRIMARY KEY,
+        payer_name             VARCHAR(100) NOT NULL,
+        payer_code             VARCHAR(20)  NOT NULL,
+        cpt_code               VARCHAR(10)  NOT NULL,
+        policy_name            TEXT,
+        policy_url             TEXT,
+        coverage_criteria      TEXT,
+        documentation_required TEXT,
+        common_denial_reasons  TEXT,
+        appeal_strategy        TEXT,
+        source                 VARCHAR(50),
+        effective_date         DATE,
+        last_scraped_at        TIMESTAMP,
+        raw_content            TEXT,
+        created_at             TIMESTAMP DEFAULT NOW(),
+        updated_at             TIMESTAMP DEFAULT NOW(),
+        UNIQUE (payer_code, cpt_code)
+      )
+    `)
+    await db.query(`CREATE INDEX IF NOT EXISTS idx_payer_policies_cpt   ON payer_policies(cpt_code)`)
+    await db.query(`CREATE INDEX IF NOT EXISTS idx_payer_policies_payer ON payer_policies(payer_code)`)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS coding_guidelines (
+        id             SERIAL PRIMARY KEY,
+        source         VARCHAR(50)  NOT NULL,
+        source_url     TEXT,
+        cpt_code       VARCHAR(10),
+        guideline_type VARCHAR(50),
+        title          TEXT,
+        content        TEXT NOT NULL,
+        effective_date DATE,
+        last_updated   TIMESTAMP DEFAULT NOW(),
+        created_at     TIMESTAMP DEFAULT NOW(),
+        UNIQUE (source, cpt_code, guideline_type)
+      )
+    `)
+    await db.query(`CREATE INDEX IF NOT EXISTS idx_coding_guidelines_cpt  ON coding_guidelines(cpt_code)`)
+    await db.query(`CREATE INDEX IF NOT EXISTS idx_coding_guidelines_type ON coding_guidelines(guideline_type)`)
+
+    await db.query(`
+      CREATE TABLE IF NOT EXISTS carc_rarc_codes (
+        id           SERIAL PRIMARY KEY,
+        code_type    VARCHAR(10) NOT NULL,
+        code         VARCHAR(20) NOT NULL,
+        description  TEXT NOT NULL,
+        category     VARCHAR(50),
+        fix_action   TEXT,
+        appeal_angle TEXT,
+        related_codes TEXT[],
+        last_updated TIMESTAMP DEFAULT NOW(),
+        created_at   TIMESTAMP DEFAULT NOW(),
+        UNIQUE (code_type, code)
       )
     `)
 
