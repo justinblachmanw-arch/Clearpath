@@ -6,5 +6,18 @@
       "PowerShell(Get-NetTCPConnection *)",
       "PowerShell(Get-Service *)"
     ]
+  },
+  "hooks": {
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node .claude/session-summary.js"
+          }
+        ]
+      }
+    ]
   }
 }
