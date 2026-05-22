@@ -69,6 +69,9 @@ CREATE TABLE IF NOT EXISTS claims (
   date_of_service         DATE,
   submitted_at            TIMESTAMP,
   paid_at                 TIMESTAMP,
+  scrub_result            VARCHAR(20),
+  scrub_notes             TEXT,
+  scrubbed_at             TIMESTAMP,
   created_at              TIMESTAMP     NOT NULL DEFAULT NOW(),
   updated_at              TIMESTAMP     NOT NULL DEFAULT NOW()
 );
