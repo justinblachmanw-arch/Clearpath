@@ -35,7 +35,7 @@ async function fetchSupporting(claim) {
   }
 }
 
-async function writeResult(claim, decision, layerTag, reason, actionPriority) {
+async function writeResult(claim, decision, layerTag, reason, actionPriority, titleOverride = null) {
   const status = decision === 'fail' ? 'needs_action' : 'ready_to_submit'
   try {
     await pool.query(
@@ -55,15 +55,12 @@ async function writeResult(claim, decision, layerTag, reason, actionPriority) {
         [sourceId]
       )
       if (!dup.rows.length) {
+        const title = titleOverride || `Scrub ${decision} [${layerTag}]: ${claim.claim_number || claim.id}`
         await pool.query(
           `INSERT INTO action_items
              (provider_id, type, priority, title, description, ai_instruction, source_agent, source_id, created_at)
            VALUES ($1,'claim_scrub_fail',$2,$3,$4,$5,'claimScrubAgent',$6,NOW())`,
-          [
-            claim.provider_id, actionPriority,
-            `Scrub ${decision} [${layerTag}]: ${claim.claim_number || claim.id}`,
-            reason, reason, sourceId
-          ]
+          [claim.provider_id, actionPriority, title, reason, reason, sourceId]
         )
       }
     } catch (err) {
@@ -84,6 +81,14 @@ async function layer1(claim, provider, patient, serviceLines) {
 
   if (!serviceLines.length)  return 'No CPT codes — at least one service line required'
   if (!patient)              return 'Patient record not found'
+
+  const diagCodes = claim.diagnosis_codes || claim.diagnosisCodes
+  if (!diagCodes || !diagCodes.length) {
+    return {
+      reason: 'No diagnosis code provided. Required for medical necessity and payer processing.',
+      title:  `Missing ICD-10 diagnosis code — ${claim.claim_number || claim.id}`
+    }
+  }
 
   const payer = (claim.payer_code || '').toUpperCase()
   if (!payer)                return 'Payer code is missing'
@@ -228,9 +233,11 @@ async function scrubClaim(claim) {
   // ── Layer 1: Hard Rules ──
   const l1fail = await layer1(claim, provider, patient, serviceLines)
   if (l1fail) {
-    console.log(`[CLAIM SCRUB] ${label} → Layer 1 FAIL: ${l1fail}`)
-    await writeResult(claim, 'fail', 'layer_1', l1fail, 1)
-    return { claimId: claim.id, decision: 'fail', reason: l1fail, layer: 1 }
+    const reason = typeof l1fail === 'string' ? l1fail : l1fail.reason
+    const title  = typeof l1fail === 'string' ? null   : l1fail.title
+    console.log(`[CLAIM SCRUB] ${label} → Layer 1 FAIL: ${reason}`)
+    await writeResult(claim, 'fail', 'layer_1', reason, 1, title)
+    return { claimId: claim.id, decision: 'fail', reason, layer: 1 }
   }
   console.log(`[CLAIM SCRUB] ${label} — Layer 1 passed`)
 
