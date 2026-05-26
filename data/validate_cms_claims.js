@@ -4,7 +4,8 @@ require('dotenv').config()
 const fs       = require('fs')
 const readline = require('readline')
 const path     = require('path')
-const { Pool } = require('pg')
+const { Pool }   = require('pg')
+const { OpenAI } = require('openai')
 
 const pool = new Pool({
   host:     process.env.DB_HOST,
@@ -71,6 +72,31 @@ async function layer2(claim) {
   return flags
 }
 
+// Layer 3 only fires on claims that pass L1 + L2 — one GPT-4o call per claim
+async function layer3(claim) {
+  const diags = [claim.icd10_primary, ...claim.icd10_codes].filter(Boolean).join(', ')
+  const prompt = [
+    `Medicare claim billing audit. No PHI present.`,
+    `CPT: ${claim.cpt_code} | ICD-10: ${diags} | POS: ${claim.place_of_service}`,
+    `Is there a billing issue? Consider: medical necessity, NCCI bundling, modifier requirements, prior auth, benefit limits.`,
+    `JSON only: { "decision": "pass"|"fail"|"warning", "reason": "<one sentence>", "category": "bundling"|"medical_necessity"|"modifier"|"prior_auth"|"benefit_limit"|"other"|"none" }`,
+  ].join('\n')
+
+  try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY })
+    const res = await openai.chat.completions.create({
+      model:           'gpt-4o',
+      messages:        [{ role: 'user', content: prompt }],
+      max_tokens:      80,
+      response_format: { type: 'json_object' },
+    })
+    return JSON.parse(res.choices[0].message.content)
+  } catch (err) {
+    console.warn(`[VALIDATE] GPT-4o failed for ${claim.claim_id}:`, err.message)
+    return { decision: 'warning', reason: 'AI unavailable', category: 'other' }
+  }
+}
+
 async function evaluate(claim) {
   const l1 = layer1(claim)
   if (l1.length) return { agent_decision: 'flag', flags_raised: l1, layer_caught: 1 }
@@ -78,6 +104,10 @@ async function evaluate(claim) {
   const l2 = await layer2(claim)
   if (l2.length) return { agent_decision: 'flag', flags_raised: l2, layer_caught: 2 }
 
+  const l3 = await layer3(claim)
+  if (l3.decision === 'fail') {
+    return { agent_decision: 'flag', flags_raised: [`l3:${l3.category}:${l3.reason}`], layer_caught: 3 }
+  }
   return { agent_decision: 'pass', flags_raised: [], layer_caught: null }
 }
 
@@ -185,9 +215,11 @@ function scorecard(results, label) {
 
   const l1TP = results.filter(r => r.layer_caught === 1 && r.cms_outcome === 'denied').length
   const l2TP = results.filter(r => r.layer_caught === 2 && r.cms_outcome === 'denied').length
+  const l3TP = results.filter(r => r.layer_caught === 3 && r.cms_outcome === 'denied').length
 
   const l1Pct  = denied.length ? ((l1TP / denied.length) * 100).toFixed(1) : '0.0'
   const l2Pct  = denied.length ? ((l2TP / denied.length) * 100).toFixed(1) : '0.0'
+  const l3Pct  = denied.length ? ((l3TP / denied.length) * 100).toFixed(1) : '0.0'
   const missPct = denied.length ? ((FN   / denied.length) * 100).toFixed(1) : '0.0'
 
   // FN patterns
@@ -224,6 +256,7 @@ function scorecard(results, label) {
     'By layer:',
     `  Layer 1 catches:   ${l1TP} (${l1Pct}% of denials)`,
     `  Layer 2 catches:   ${l2TP} (${l2Pct}% of denials)`,
+    `  Layer 3 catches:   ${l3TP} (${l3Pct}% of denials)`,
     `  Missed entirely:   ${FN} (${missPct}% of denials)`,
     '',
     'Most common missed denial patterns (FN):',
@@ -257,7 +290,14 @@ async function main() {
 
   console.log('[VALIDATE] PART 2 — loading 50 paid + 50 synthetic denied...')
   const real50     = realMapped.slice(0, 20)
-  const synthetic  = generateSyntheticDenied().slice(0, 20)
+  // Only structurally valid denied claims — all Layer 1 checks pass
+  // This isolates what Layer 2 (payer policy) actually catches
+  const synthetic  = generateSyntheticDenied().filter(c =>
+    c.cpt_code && isValidHCPCS(c.cpt_code) &&
+    (c.icd10_primary || c.icd10_codes.length) &&
+    c.place_of_service &&
+    c.billed_amount > 0
+  )
   const mixed      = [...real50, ...synthetic]
 
   const part2Results = []

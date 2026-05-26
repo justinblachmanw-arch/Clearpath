@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-26T01:00:28.704Z",
+  "generated_at": "2026-05-26T01:11:16.624Z",
   "part1_fp_analysis": [
     {
       "claim_id": "-10000930037915",
@@ -18,9 +18,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:Diagnosis codes R4689 are repeated and may not justify medical necessity for 96127."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -62,9 +64,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:Duplicate ICD-10 code R4689 could indicate improper billing or lack of specificity in diagnosis reporting."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -84,9 +88,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:Duplicate ICD-10 codes identified, which may result in a claim denial."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -150,9 +156,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:other:ICD-10 code R4689 is duplicated, which may cause rejection."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -482,9 +490,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:The claim has duplicate diagnosis codes, which may not justify medical necessity for depression screening."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -504,9 +514,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:other:Duplicate ICD-10 code R4689 may indicate a billing error."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -548,9 +560,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:CPT G0444 requires documentation of medical necessity, which is not clearly established with the given ICD-10 codes."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -592,9 +606,11 @@
       "payer_code": "MEDICARE",
       "cms_outcome": "paid",
       "denial_code": "1",
-      "agent_decision": "pass",
-      "flags_raised": [],
-      "layer_caught": null,
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:other:Duplicate ICD-10 code R4689 listed, which may cause claim rejection or need for clarification."
+      ],
+      "layer_caught": 3,
       "_source": "cms_real"
     },
     {
@@ -884,429 +900,431 @@
       "_source": "cms_real"
     },
     {
-      "claim_id": "SYN-001",
-      "cpt_code": "",
+      "claim_id": "SYN-030",
+      "cpt_code": "Z9999",
       "icd10_primary": "Z13.89",
       "icd10_codes": [
         "F32.9"
       ],
       "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-002",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-003",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-004",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-005",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-006",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-007",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-008",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-009",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-010",
-      "cpt_code": "",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-16",
-      "_denial_reason": "missing_cpt",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_cpt"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-011",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-012",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-013",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-014",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-015",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-016",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-017",
-      "cpt_code": "G0444",
-      "icd10_primary": "",
-      "icd10_codes": [],
-      "billed_amount": 125,
-      "paid_amount": 0,
-      "place_of_service": "11",
-      "provider_specialty": "01",
-      "payer_code": "MEDICARE",
-      "cms_outcome": "denied",
-      "denial_code": "CO-11",
-      "_denial_reason": "missing_icd10",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "missing_icd10"
-      ],
-      "layer_caught": 1,
-      "_source": "synthetic_denied"
-    },
-    {
-      "claim_id": "SYN-018",
-      "cpt_code": "G0444",
-      "icd10_primary": "Z13.89",
-      "icd10_codes": [
-        "F32.9"
-      ],
-      "billed_amount": 0,
       "paid_amount": 0,
       "place_of_service": "11",
       "provider_specialty": "01",
       "payer_code": "MEDICARE",
       "cms_outcome": "denied",
       "denial_code": "CO-4",
-      "_denial_reason": "zero_billed",
+      "_denial_reason": "invalid_cpt",
       "agent_decision": "flag",
       "flags_raised": [
-        "zero_billed"
+        "l3:medical_necessity:CPT code Z9999 is not valid, and the ICD-10 codes provided do not support clear medical necessity."
       ],
-      "layer_caught": 1,
+      "layer_caught": 3,
       "_source": "synthetic_denied"
     },
     {
-      "claim_id": "SYN-019",
+      "claim_id": "SYN-031",
+      "cpt_code": "99202",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-50",
+      "_denial_reason": "em_no_policy",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-032",
+      "cpt_code": "99203",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-50",
+      "_denial_reason": "em_no_policy",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-033",
+      "cpt_code": "99204",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-50",
+      "_denial_reason": "em_no_policy",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-034",
+      "cpt_code": "99213",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-50",
+      "_denial_reason": "em_no_policy",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-035",
+      "cpt_code": "99214",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-50",
+      "_denial_reason": "em_no_policy",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-036",
       "cpt_code": "G0444",
       "icd10_primary": "Z13.89",
       "icd10_codes": [
         "F32.9"
       ],
-      "billed_amount": 0,
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-97",
+      "_denial_reason": "bundling_violation",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-037",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-97",
+      "_denial_reason": "bundling_violation",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-038",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-97",
+      "_denial_reason": "bundling_violation",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-039",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-97",
+      "_denial_reason": "bundling_violation",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-040",
+      "cpt_code": "96156",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-B7",
+      "_denial_reason": "prior_auth_required",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-041",
+      "cpt_code": "96156",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-B7",
+      "_denial_reason": "prior_auth_required",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-042",
+      "cpt_code": "96156",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-B7",
+      "_denial_reason": "prior_auth_required",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-043",
+      "cpt_code": "99408",
+      "icd10_primary": "M79.3",
+      "icd10_codes": [
+        "M79.1"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "medical_necessity",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:CPT code 99408 may not be considered medically necessary with the provided ICD-10 codes M79.3 and M79.1."
+      ],
+      "layer_caught": 3,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-044",
+      "cpt_code": "99408",
+      "icd10_primary": "M79.3",
+      "icd10_codes": [
+        "M79.1"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "medical_necessity",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "l3:medical_necessity:CPT code 99408 requires documentation supporting medical necessity for substance abuse screening which may not align with the provided ICD-10 codes."
+      ],
+      "layer_caught": 3,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-045",
+      "cpt_code": "99408",
+      "icd10_primary": "M79.3",
+      "icd10_codes": [
+        "M79.1"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "medical_necessity",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-046",
+      "cpt_code": "99408",
+      "icd10_primary": "M79.3",
+      "icd10_codes": [
+        "M79.1"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "medical_necessity",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-047",
+      "cpt_code": "99495",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
       "paid_amount": 0,
       "place_of_service": "11",
       "provider_specialty": "01",
       "payer_code": "MEDICARE",
       "cms_outcome": "denied",
       "denial_code": "CO-4",
-      "_denial_reason": "zero_billed",
+      "_denial_reason": "missing_modifier",
       "agent_decision": "flag",
       "flags_raised": [
-        "zero_billed"
+        "l3:medical_necessity:Medical necessity for CPT 99495 requires a recent discharge from a healthcare facility and follow-up conditions that may not be justified by ICD-10 codes Z13.89 and F32.9."
       ],
-      "layer_caught": 1,
+      "layer_caught": 3,
       "_source": "synthetic_denied"
     },
     {
-      "claim_id": "SYN-020",
-      "cpt_code": "G0444",
+      "claim_id": "SYN-048",
+      "cpt_code": "99495",
       "icd10_primary": "Z13.89",
       "icd10_codes": [
         "F32.9"
       ],
-      "billed_amount": 0,
+      "billed_amount": 125,
       "paid_amount": 0,
       "place_of_service": "11",
       "provider_specialty": "01",
       "payer_code": "MEDICARE",
       "cms_outcome": "denied",
       "denial_code": "CO-4",
-      "_denial_reason": "zero_billed",
-      "agent_decision": "flag",
-      "flags_raised": [
-        "zero_billed"
+      "_denial_reason": "missing_modifier",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-049",
+      "cpt_code": "G0442",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
       ],
-      "layer_caught": 1,
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-119",
+      "_denial_reason": "benefit_max_reached",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-050",
+      "cpt_code": "G0442",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-119",
+      "_denial_reason": "benefit_max_reached",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
       "_source": "synthetic_denied"
     }
   ]
