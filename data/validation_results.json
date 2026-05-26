@@ -1,1602 +1,1313 @@
-[
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "96127",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "G9573",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037915",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1165.87,
-    "paid_amount": 932.69,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "96127",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "G9573",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "99408",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037916",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 931.41,
-    "paid_amount": 745.12,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "99495",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "96156",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "96127",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "99401",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037917",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1300.68,
-    "paid_amount": 1040.54,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "99495",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "96156",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "99408",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "G0442",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037918",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1413.99,
-    "paid_amount": 1131.18,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "99495",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "96156",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "96127",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "99401",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "99408",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "99408",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037919",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1727.85,
-    "paid_amount": 1382.27,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "99495",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "96156",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "96127",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "99401",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "G0444",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "99408",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "G0442",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "no_policy_data"
-    ],
-    "layer_caught": 2
-  },
-  {
-    "claim_id": "-10000930037920",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 2088.11,
-    "paid_amount": 1670.48,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  },
-  {
-    "claim_id": "-10000930037921",
-    "cpt_code": "",
-    "icd10_primary": "R4689",
-    "place_of_service": "11",
-    "billed_amount": 1670.93,
-    "paid_amount": 1336.74,
-    "provider_specialty": "01",
-    "denial_code": "1",
-    "cms_outcome": "paid",
-    "agent_decision": "flag",
-    "flags_raised": [
-      "missing_cpt"
-    ],
-    "layer_caught": 1
-  }
-]
+{
+  "generated_at": "2026-05-26T01:00:28.704Z",
+  "part1_fp_analysis": [
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "G9573",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "G9573",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "99408",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "99401",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "99408",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0442",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    }
+  ],
+  "part2_mixed": [
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037915",
+      "cpt_code": "G9573",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 1165.87,
+      "paid_amount": 932.69,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "G9573",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037916",
+      "cpt_code": "99408",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "R4689",
+        "E781",
+        "J329",
+        "E119"
+      ],
+      "billed_amount": 931.41,
+      "paid_amount": 745.12,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037917",
+      "cpt_code": "99401",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "T7432X",
+        "M7918",
+        "E781"
+      ],
+      "billed_amount": 1300.68,
+      "paid_amount": 1040.54,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0444",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "99408",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037918",
+      "cpt_code": "G0442",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "Z591",
+        "M7918",
+        "E781",
+        "J329"
+      ],
+      "billed_amount": 1413.99,
+      "paid_amount": 1131.18,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "99495",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "96156",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "-10000930037919",
+      "cpt_code": "96127",
+      "icd10_primary": "R4689",
+      "icd10_codes": [
+        "T7432X",
+        "Z733",
+        "I10",
+        "E8881"
+      ],
+      "billed_amount": 1727.85,
+      "paid_amount": 1382.27,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "paid",
+      "denial_code": "1",
+      "agent_decision": "pass",
+      "flags_raised": [],
+      "layer_caught": null,
+      "_source": "cms_real"
+    },
+    {
+      "claim_id": "SYN-001",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-002",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-003",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-004",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-005",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-006",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-007",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-008",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-009",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-010",
+      "cpt_code": "",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-16",
+      "_denial_reason": "missing_cpt",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_cpt"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-011",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-012",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-013",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-014",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-015",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-016",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-017",
+      "cpt_code": "G0444",
+      "icd10_primary": "",
+      "icd10_codes": [],
+      "billed_amount": 125,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-11",
+      "_denial_reason": "missing_icd10",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "missing_icd10"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-018",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 0,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-4",
+      "_denial_reason": "zero_billed",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "zero_billed"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-019",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 0,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-4",
+      "_denial_reason": "zero_billed",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "zero_billed"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    },
+    {
+      "claim_id": "SYN-020",
+      "cpt_code": "G0444",
+      "icd10_primary": "Z13.89",
+      "icd10_codes": [
+        "F32.9"
+      ],
+      "billed_amount": 0,
+      "paid_amount": 0,
+      "place_of_service": "11",
+      "provider_specialty": "01",
+      "payer_code": "MEDICARE",
+      "cms_outcome": "denied",
+      "denial_code": "CO-4",
+      "_denial_reason": "zero_billed",
+      "agent_decision": "flag",
+      "flags_raised": [
+        "zero_billed"
+      ],
+      "layer_caught": 1,
+      "_source": "synthetic_denied"
+    }
+  ]
+}
