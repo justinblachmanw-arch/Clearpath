@@ -1,5 +1,6 @@
 require('dotenv').config()
-const express        = require('express')
+const express                  = require('express')
+const migrateCodingIntelligence = require('../lib/codingIntelligenceMigration')
 const helmet         = require('helmet')
 const cors           = require('cors')
 const { rateLimit }  = require('express-rate-limit')
@@ -247,6 +248,7 @@ async function ensureDbSchema() {
       }
     }
 
+    await migrateCodingIntelligence(db)
     console.log('[API] DB schema ready')
   } catch (err) {
     console.error('[API] Schema setup error:', err.message)
