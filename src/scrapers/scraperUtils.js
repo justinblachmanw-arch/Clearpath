@@ -250,9 +250,12 @@ function makeCounter() {
   return c
 }
 
+const fetchPDFRaw = fetchPDF
+
 module.exports = {
   fetchPage,
   fetchPDF,
+  fetchPDFRaw,
   fetchCSV,
   upsertRecord,
   logScraperRun,

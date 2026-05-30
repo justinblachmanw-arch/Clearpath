@@ -27,7 +27,7 @@
     "node-x12": "^1.7.1",
     "openai": "^6.37.0",
     "papaparse": "^5.5.3",
-    "pdf-parse": "^2.4.5",
+    "pdf-parse": "^1.1.1",
     "pg": "^8.20.0",
     "twilio": "^6.0.2",
     "youtube-transcript": "^1.3.1"
